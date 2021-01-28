@@ -6,6 +6,12 @@
                 "cs": "Change to Czech",
                 "en": "Zmenit do angličtiny"
             }
+        },
+        "GenericView":{
+            "tableTypes":{
+                "CarAdministration": "Tabulka administrace aut",
+                "UserAdministration": "Tabulka administrace uzivatelu"
+            }
         }
     },
     "components": {

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { Home, About, Administration } from '@/views'
+import { Home, About, Administration, GenericView } from '@/views'
 
 Vue.use(VueRouter)
 
@@ -19,6 +19,11 @@ const routes = [
         path: '/administration',
         name: 'Administration',
         component: Administration
+    },
+    {
+        path: '/generictable',
+        name: 'GenericView',
+        component: GenericView
     }
 ]
 

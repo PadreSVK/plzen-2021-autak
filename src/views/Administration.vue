@@ -14,26 +14,24 @@
 
 <script>
 import { CreateAdministrator } from "@/components";
+import { mapState } from "vuex";
 
 export default {
   name: "Administration",
   components: {
     CreateAdministrator,
   },
+  computed: { ...mapState(["carAdministrators"]) },
+
   data() {
     return {
-      carAdministrators: [
-        { name: "Albert", note: "programator" },
-        { name: "Fero", note: "manager" },
-        { name: "Jozo", note: "správca" },
-        { name: "Kevin", note: "manager" },
-        { name: "Patrik", note: "programator" },
-      ],
       headers: [
         { text: "Spravce", value: "name" },
         { text: "Poznamka", value: "note" },
       ],
-      testValue: "aaa55",
+      filter: {
+          value: "filterValue"
+      },
     };
   },
   methods: {
@@ -45,8 +43,12 @@ export default {
         console.log("Is Invalid");
       }
     },
-    addAdministrator({administrator}) {
-        this.carAdministrators.push(administrator)
+    addAdministrator({ administrator }) {
+      this.filter;
+      this.$store.dispatch("addCarAdministrator", {
+        administrator,
+        filter: this.filter,
+      });
     },
   },
 };

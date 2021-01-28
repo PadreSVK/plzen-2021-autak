@@ -6,6 +6,12 @@
                 "cs": "Zmenit do cestiny",
                 "en": "Change to english"
             }
+        },
+        "GenericView":{
+            "tableTypes":{
+                "CarAdministration": "Car administration table",
+                "UserAdministration": "User administration table"
+            }
         }
     },
     "components": {

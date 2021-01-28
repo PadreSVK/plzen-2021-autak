@@ -31,6 +31,10 @@ export default {
       const isValid = await this.$refs.validator.validate();
       if (isValid) {
         this.$emit("create-event", { administrator: this.administrator });
+        this.administrator = {
+          note: undefined,
+          name: undefined,
+        };
       }
     },
   },
