@@ -41,8 +41,9 @@ export default Vue.extend({
   name: "App",
   data: () => ({
     views: [
-      { title: "About", routeName: "About", route: "/about" },
+      { title: "About", routeName: "About" },
       { title: "Home", routeName: "Home" },
+      { title: "Administration", routeName: "Administration" },
     ],
   }),
 });

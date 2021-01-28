@@ -21,13 +21,6 @@ export default Vue.extend({
   data() {
     return {
       testText: "Welcome Plzen to Your Vue.js + TypeScript App",
-      carAdministrators: [
-        { name: "Albert", Note: "programator" },
-        { name: "Fero", Note: "manager" },
-        { name: "Jozo", Note: "správca" },
-        { name: "Kevin", Note: "manager" },
-        { name: "Patrik", Note: "programator" },
-      ],
     };
   },
 });
