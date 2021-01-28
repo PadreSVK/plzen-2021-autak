@@ -20,7 +20,7 @@
           width="100"
         />
 
-        <v-btn v-for="view in views" :key="view" :to="{ name: view.routeName }">
+        <v-btn v-for="view in views" :key="view.title" :to="{ name: view.routeName }">
           {{ view.title }}
         </v-btn>
       </div>
