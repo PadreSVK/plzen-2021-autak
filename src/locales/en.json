@@ -19,6 +19,14 @@
                 "CarAdministration": "Car administration table",
                 "UserAdministration": "User administration table"
             }
+        },
+        "Tables":{
+            "CarAdministration":{
+                "Title": "Car administration table"
+            },
+            "UserAdministration": {
+                "Title": "User administration table"
+            }
         }
     }
 }

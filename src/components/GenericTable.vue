@@ -4,7 +4,7 @@
     <v-data-table
       dense
       :items="genericTable.items"
-      :headers="genericTable.headers"
+      :headers="headers"
       class="elevation-1"
     ></v-data-table>
   </div>
@@ -18,6 +18,12 @@ export default {
   computed: {
     localizedTitle(){
         return this.$t(`components.GenericTable.type.${this.genericTable.tableType}`)
+    },
+    headers(){
+        return this.genericTable.headers.map( h => ({
+            value: h.value,
+            text: this.$t(`components.Tables.UserAdministration.${h.textkey}`)
+        })) ;
     }
   },
 };

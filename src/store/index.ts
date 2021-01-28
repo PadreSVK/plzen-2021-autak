@@ -12,6 +12,28 @@ export default new Vuex.Store({
             { name: "Kevin", note: "manager" },
             { name: "Patrik", note: "programator" },
         ],
+        genericComponents:[
+            {
+                tableType: "CarAdministration",
+                items: [
+                    { name: "Albert", note: "programator" },
+                    { name: "Fero", note: "manager" },
+                    { name: "Jozo", note: "správca" },
+                    { name: "Kevin", note: "manager" },
+                    { name: "Patrik", note: "programator" },
+                ]
+            },
+            {
+                tableType: "UserAdministration",
+                items: [
+                    { name: "Albert", note: "programator" },
+                    { name: "Fero", note: "manager" },
+                    { name: "Jozo", note: "správca" },
+                    { name: "Kevin", note: "manager" },
+                    { name: "Patrik", note: "programator" },
+                ]
+            }
+        ],
         genericTable1: {
             tableType: "CarAdministration",
             headers: [

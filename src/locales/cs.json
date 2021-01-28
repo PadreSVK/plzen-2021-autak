@@ -6,8 +6,7 @@
                 "cs": "Change to Czech",
                 "en": "Zmenit do angličtiny"
             }
-        },
-        
+        }
     },
     "components": {
         "CreateAdministrator": {
@@ -15,10 +14,18 @@
             "note": "Poznámka",
             "saveButton": "Uložit"
         },
-        "GenericTable":{
-            "type":{
+        "GenericTable": {
+            "type": {
                 "CarAdministration": "Tabulka administrace aut",
                 "UserAdministration": "Tabulka administrace uzivatelu"
+            }
+        },
+        "Tables": {
+            "CarAdministration": {
+                "Title": "Tabulka administrace aut"
+            },
+            "UserAdministration": {
+                "Title": "Tabulka administrace uzivatelu"
             }
         }
     }

@@ -1,25 +1,20 @@
 <template>
-  <div>
-    <h1>Administration</h1>
-    <v-data-table
-      dense
-      :items="carAdministrators"
-      :headers="headers"
-      class="elevation-1"
-    ></v-data-table>
-
+  <v-container>
+    <CarAdministration :items="carAdministrators" />
     <CreateAdministrator @create-event="addAdministrator" />
-  </div>
+  </v-container>
 </template>
 
 <script>
 import { CreateAdministrator } from "@/components";
+import { CarAdministration } from "@/components/Tables";
 import { mapState } from "vuex";
 
 export default {
   name: "Administration",
   components: {
     CreateAdministrator,
+    CarAdministration,
   },
   computed: { ...mapState(["carAdministrators"]) },
 
@@ -30,7 +25,7 @@ export default {
         { text: "Poznamka", value: "note" },
       ],
       filter: {
-          value: "filterValue"
+        value: "filterValue",
       },
     };
   },

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-container>
     <GenericTable :genericTable="genericTable1" />
     <GenericTable :genericTable="genericTable2" />
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -14,7 +14,9 @@ export default {
   components: {
     GenericTable,
   },
-  computed: { ...mapState(["genericTable1", "genericTable2"]) },
+  computed: {
+    ...mapState(["genericTable1", "genericTable2"]),
+  },
 };
 </script>
 
