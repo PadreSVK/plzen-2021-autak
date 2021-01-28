@@ -29,9 +29,10 @@
         </v-btn>
       </div>
 
+        {{$t("message")}}
       <v-spacer></v-spacer>
-      <v-btn @click="changeLocalization('en')">Change to US</v-btn>
-      <v-btn @click="changeLocalization('cs')">Zmen do Cestiny</v-btn>
+      <v-btn @click="changeLocalization('en')">{{getCurrentLocalization("localizations.en")}}</v-btn>
+      <v-btn @click="changeLocalization('cs')">{{getCurrentLocalization("localizations.cs")}}</v-btn>
     </v-app-bar>
 
     <v-main>
@@ -56,7 +57,11 @@ export default Vue.extend({
   methods: {
     changeLocalization(lang: string) {
       localize(lang);
+      this.$i18n.locale = lang;
     },
+    getCurrentLocalization(key: string){
+        return this.$t(`views.App.${key}`)
+    }
   },
 });
 </script>

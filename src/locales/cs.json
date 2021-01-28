@@ -1,0 +1,11 @@
+{
+    "message": "Ahoj i18n !!",
+    "views": {
+        "App": {
+            "localizations": {
+                "cs": "Change to Czech",
+                "en": "Zmenit do angličtiny"
+            }
+        }
+    }
+}
