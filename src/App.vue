@@ -20,12 +20,18 @@
           width="100"
         />
 
-        <v-btn v-for="view in views" :key="view.title" :to="{ name: view.routeName }">
+        <v-btn
+          v-for="view in views"
+          :key="view.title"
+          :to="{ name: view.routeName }"
+        >
           {{ view.title }}
         </v-btn>
       </div>
 
       <v-spacer></v-spacer>
+      <v-btn @click="changeLocalization('en')">Change to US</v-btn>
+      <v-btn @click="changeLocalization('cs')">Zmen do Cestiny</v-btn>
     </v-app-bar>
 
     <v-main>
@@ -36,6 +42,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { localize } from "vee-validate";
 
 export default Vue.extend({
   name: "App",
@@ -46,5 +53,10 @@ export default Vue.extend({
       { title: "Administration", routeName: "Administration" },
     ],
   }),
+  methods: {
+    changeLocalization(lang: string) {
+      localize(lang);
+    },
+  },
 });
 </script>

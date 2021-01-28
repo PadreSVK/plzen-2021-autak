@@ -13,15 +13,24 @@
         rules="mySecretRule"
         label="Meno"
         v-model="testValue"
-        @change="changed"
       />
     </ValidationObserver>
 
-    <v-btn @click="validate" >Validate</v-btn>
+    <ValidationObserver>
+      <v-text-field-validateable
+        rules="alpha"
+        label="Lokalizovana validacia"
+        v-model="testValue"
+      />
+    </ValidationObserver>
+
+    <v-btn @click="validate">Validate</v-btn>
+  
   </div>
 </template>
 
 <script>
+
 export default {
   name: "Administration",
   data() {
@@ -37,23 +46,19 @@ export default {
         { text: "Spravce", value: "name" },
         { text: "Poznamka", value: "note" },
       ],
-      testValue: "aaa",
+      testValue: "aaa55",
     };
   },
-  methods:{
-      async validate(){
-          const isValid = await this.$refs.validator.validate();
-          if(isValid){
-              console.log("Is Valid");
-          }
-          else{
-              console.log("Is Invalid");
-          }
-      },
-      changed(){
-          console.log("changed");
+  methods: {
+    async validate() {
+      const isValid = await this.$refs.validator.validate();
+      if (isValid) {
+        console.log("Is Valid");
+      } else {
+        console.log("Is Invalid");
       }
-  }
+    },
+  },
 };
 </script>
 
