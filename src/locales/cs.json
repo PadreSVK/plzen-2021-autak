@@ -7,18 +7,19 @@
                 "en": "Zmenit do angličtiny"
             }
         },
-        "GenericView":{
-            "tableTypes":{
-                "CarAdministration": "Tabulka administrace aut",
-                "UserAdministration": "Tabulka administrace uzivatelu"
-            }
-        }
+        
     },
     "components": {
         "CreateAdministrator": {
             "name": "Meno",
             "note": "Poznámka",
             "saveButton": "Uložit"
+        },
+        "GenericTable":{
+            "type":{
+                "CarAdministration": "Tabulka administrace aut",
+                "UserAdministration": "Tabulka administrace uzivatelu"
+            }
         }
     }
 }

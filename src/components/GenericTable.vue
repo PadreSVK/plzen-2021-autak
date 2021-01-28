@@ -17,7 +17,7 @@ export default {
   props: ["genericTable"],
   computed: {
     localizedTitle(){
-        return this.$t(`views.GenericView.tableTypes.${this.genericTable.tableType}`)
+        return this.$t(`components.GenericTable.type.${this.genericTable.tableType}`)
     }
   },
 };

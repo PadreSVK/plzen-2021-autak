@@ -6,19 +6,19 @@
                 "cs": "Zmenit do cestiny",
                 "en": "Change to english"
             }
-        },
-        "GenericView":{
-            "tableTypes":{
-                "CarAdministration": "Car administration table",
-                "UserAdministration": "User administration table"
-            }
         }
     },
     "components": {
         "CreateAdministrator": {
             "name": "Name",
             "note": "Note",
-            "saveButton" : "Save"
+            "saveButton": "Save"
+        },
+        "GenericTable": {
+            "type": {
+                "CarAdministration": "Car administration table",
+                "UserAdministration": "User administration table"
+            }
         }
     }
 }
