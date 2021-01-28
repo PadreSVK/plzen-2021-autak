@@ -7,5 +7,12 @@
                 "en": "Change to english"
             }
         }
+    },
+    "components": {
+        "CreateAdministrator": {
+            "name": "Name",
+            "note": "Note",
+            "saveButton" : "Save"
+        }
     }
 }

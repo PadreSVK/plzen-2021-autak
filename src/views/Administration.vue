@@ -8,31 +8,18 @@
       class="elevation-1"
     ></v-data-table>
 
-    <ValidationObserver ref="validator">
-      <v-text-field-validateable
-        rules="mySecretRule"
-        label="Meno"
-        v-model="testValue"
-      />
-    </ValidationObserver>
-
-    <ValidationObserver>
-      <v-text-field-validateable
-        rules="alpha"
-        label="Lokalizovana validacia"
-        v-model="testValue"
-      />
-    </ValidationObserver>
-
-    <v-btn @click="validate">Validate</v-btn>
-  
+    <CreateAdministrator @create-event="addAdministrator" />
   </div>
 </template>
 
 <script>
+import { CreateAdministrator } from "@/components";
 
 export default {
   name: "Administration",
+  components: {
+    CreateAdministrator,
+  },
   data() {
     return {
       carAdministrators: [
@@ -57,6 +44,9 @@ export default {
       } else {
         console.log("Is Invalid");
       }
+    },
+    addAdministrator({administrator}) {
+        this.carAdministrators.push(administrator)
     },
   },
 };

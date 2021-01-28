@@ -7,5 +7,12 @@
                 "en": "Zmenit do angličtiny"
             }
         }
+    },
+    "components": {
+        "CreateAdministrator": {
+            "name": "Meno",
+            "note": "Poznámka",
+            "saveButton": "Uložit"
+        }
     }
 }
