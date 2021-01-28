@@ -79,6 +79,12 @@ export default new Vuex.Store({
             // const administrators = await POST("administrator", administrator)
             // commit("UPDATE_CAR_ADMINISTRATOR", { administrators })
             commit("ADD_CAR_ADMINISTRATOR", { administrator })
+        },
+        async loadCarAdmninistratorData({ commit }, { pagination }) {
+            console.log(pagination)
+            // call server, update administrators,  return administrators
+            // const administrators = await GET("caradministrators", {query: pagination})
+            // commit("UPDATE_CAR_ADMINISTRATOR", { administrators })
         }
     },
     modules: {
