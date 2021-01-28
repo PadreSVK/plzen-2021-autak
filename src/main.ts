@@ -3,8 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
+import veevalidate from './plugins/vee-validate';
+
 
 Vue.config.productionTip = false
+
+veevalidate.apply(Vue)
 
 new Vue({
     router,
