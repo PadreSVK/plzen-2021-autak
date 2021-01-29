@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Autak.API.FakeDB;
+using Autak.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
