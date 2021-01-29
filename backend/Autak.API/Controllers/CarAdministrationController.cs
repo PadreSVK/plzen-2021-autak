@@ -38,5 +38,22 @@ namespace Autak.API.Controllers
 			logger.LogInformation($"{nameof(sortDesc)} {string.Concat(sortDesc)}");
 			return database.GetCarAdministrators(carAdministratorFilter);
 		}
+
+		[HttpGet("cars")]
+		//https: //localhost:5001/api/CarAdministration?page=1&itemsPerPage=10&sortBy[]=name&sortDesc[]=false&mustSort=false&multiSort=false
+		public CarDataTableModel GetCars([FromQuery] int page, [FromQuery] int itemsPerPage,
+			[FromQuery(Name = "sortBy[]")] List<string> sortBy, [FromQuery(Name = "sortDesc[]")] List<bool> sortDesc)
+		{
+			var carFilter = new CarFilter()
+			{
+				ItemsPerPage = itemsPerPage,
+				Page = page,
+				SortFilters = sortBy.Select((s, i) => new SortFilter { By = s, Descending = sortDesc[i] })
+			};
+
+			logger.LogInformation($"{nameof(sortBy)} {string.Concat(sortBy)}");
+			logger.LogInformation($"{nameof(sortDesc)} {string.Concat(sortDesc)}");
+			return database.GetCars(carFilter);
+		}
 	}
 }

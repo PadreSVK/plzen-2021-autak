@@ -9,5 +9,6 @@ namespace Autak.API.FakeDB
 	{
 		IEnumerable<WeatherForecast> GetWeatherForecasts();
 		CarAdministratorDataTableModel GetCarAdministrators(CarAdministratorFilter filter);
+		CarDataTableModel GetCars(CarFilter carAdministratorFilter);
 	}
 }
