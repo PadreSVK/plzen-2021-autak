@@ -24,7 +24,9 @@
                 "Title": "Car administration table"
             },
             "UserAdministration": {
-                "Title": "User administration table"
+                "Title": "User administration table",
+                "Name": "Name",
+                "Note": "Note"
             }
         }
     }

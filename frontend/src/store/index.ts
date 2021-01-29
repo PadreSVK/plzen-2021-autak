@@ -8,6 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         carAdministrators: [],
+        genericComponents: [
             {
                 tableType: "CarAdministration",
                 items: [
@@ -32,8 +33,8 @@ export default new Vuex.Store({
         genericTable1: {
             tableType: "CarAdministration",
             headers: [
-                { text: "Spravce", value: "name" },
-                { text: "Poznamka", value: "note" },
+                { textkey: "Name", value: "name" },
+                { textkey: "Note", value: "note" },
             ],
             items: [
                 { name: "Albert", note: "programator" },
@@ -46,8 +47,8 @@ export default new Vuex.Store({
         genericTable2: {
             tableType: "UserAdministration",
             headers: [
-                { text: "Spravce", value: "name" },
-                { text: "Poznamka", value: "note" },
+                { textkey: "Name", value: "name" },
+                { textkey: "Note", value: "note" },
             ],
             items: [
                 { name: "Albert", note: "programator" },

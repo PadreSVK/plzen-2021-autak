@@ -24,7 +24,9 @@
                 "Title": "Tabulka administrace aut"
             },
             "UserAdministration": {
-                "Title": "Tabulka administrace uzivatelu"
+                "Title": "Tabulka administrace uzivatelu",
+                "Name": "Jmeno",
+                "Note": "Poznámka"
             }
         }
     }
