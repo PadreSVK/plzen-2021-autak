@@ -1,15 +1,26 @@
 <template>
   <v-container>
     <CarAdministration
-      :items="carAdministrators"
+      :tableModel="carAdministratorsDataTableModel"
       @pagination-changed-event="loadData"
     />
     <CreateAdministrator @create-event="addAdministrator" />
+    <BaseModalDialog title="Moj haha dialog" width="50%">
+      <template #showbutton="{ on }">
+        <v-btn v-on="on"> Open Dialog from template</v-btn>
+      </template>
+
+      <template #footer="{ close }">
+        <v-btn @click="close">Cancel</v-btn>
+        <v-spacer />
+        <v-btn @click="save(close)">Save</v-btn>
+      </template>
+    </BaseModalDialog>
   </v-container>
 </template>
 
 <script>
-import { CreateAdministrator } from "@/components";
+import { CreateAdministrator, BaseModalDialog } from "@/components";
 import { CarAdministration } from "@/components/Tables";
 import { mapState } from "vuex";
 
@@ -18,8 +29,9 @@ export default {
   components: {
     CreateAdministrator,
     CarAdministration,
+    BaseModalDialog,
   },
-  computed: { ...mapState(["carAdministrators"]) },
+  computed: { ...mapState(["carAdministratorsDataTableModel"]) },
 
   data() {
     return {
@@ -53,6 +65,10 @@ export default {
       this.$store.dispatch("loadCarAdministratorData", {
         pagination: pagination,
       });
+    },
+    save(close) {
+      console.log("save item");
+      close();
     },
   },
 };

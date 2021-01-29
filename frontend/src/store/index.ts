@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        carAdministrators: [],
+        carAdministratorsDataTableModel: undefined,
         genericComponents: [
             {
                 tableType: "CarAdministration",
@@ -61,11 +61,11 @@ export default new Vuex.Store({
     },
     mutations: {
         ADD_CAR_ADMINISTRATOR(state, { administrator }) {
-            const administrators = state.carAdministrators.concat(administrator)
-            state.carAdministrators = administrators
+            // const administrators = state.carAdministrators.concat(administrator)
+            // state.carAdministrators = administrators
         },
-        LOAD_CAR_ADMINISTRATORS(state, { administrators }) {
-            state.carAdministrators = administrators
+        LOAD_CAR_ADMINISTRATORS(state, { administratorsDataTableModel }) {
+            state.carAdministratorsDataTableModel = administratorsDataTableModel
         }
     },
     actions: {
@@ -77,8 +77,8 @@ export default new Vuex.Store({
             commit("ADD_CAR_ADMINISTRATOR", { administrator })
         },
         async loadCarAdministratorData({ commit }, { pagination }) {
-            const administrators = await GET("CarAdministration", { params: pagination })
-            commit("LOAD_CAR_ADMINISTRATORS", { administrators })
+            const administratorsDataTableModel = await GET("CarAdministration", { params: pagination })
+            commit("LOAD_CAR_ADMINISTRATORS", { administratorsDataTableModel })
         }
     },
     modules: {

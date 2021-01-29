@@ -1,5 +1,4 @@
-﻿using Autak.API.Controllers;
-using Autak.API.FakeDB.Filters;
+﻿using Autak.API.FakeDB.Filters;
 using Autak.API.Models;
 using Bogus;
 using System;
@@ -21,12 +20,9 @@ namespace Autak.API.FakeDB
 		}
 
 
-		public IEnumerable<WeatherForecast> GetWeatherForecasts()
-		{
-			return weatherForecasts;
-		}
+		public IEnumerable<WeatherForecast> GetWeatherForecasts() => weatherForecasts;
 
-		public IEnumerable<CarAdministrator> GetCarAdministrators(CarAdministratorFilter filter)
+		public CarAdministratorDataTableModel GetCarAdministrators(CarAdministratorFilter filter)
 		{
 			// todo additional filtering function 
 			// could be passed as argument
@@ -38,6 +34,7 @@ namespace Autak.API.FakeDB
 
 			var resultQuery = carAdministrators;
 			foreach (var sortFilter in filter.SortFilters)
+			{
 				resultQuery = sortFilter.By switch
 				{
 					"name" => sortFilter.Descending
@@ -48,11 +45,14 @@ namespace Autak.API.FakeDB
 						: resultQuery.OrderBy(i => i.Note),
 					_ => throw new ArgumentOutOfRangeException()
 				};
+			}
 			// todo additional filtering function 
 			// resultQuery = additionalFunc(resultQuery);
 
 			var itemsToSkip = (filter.Page - 1) * filter.ItemsPerPage;
-			return resultQuery.Skip(itemsToSkip).Take(filter.ItemsPerPage);
+			resultQuery = resultQuery.Skip(itemsToSkip).Take(filter.ItemsPerPage);
+
+			return new CarAdministratorDataTableModel {Items = resultQuery, TotalItems = carAdministrators.Count()};
 		}
 
 		private static IEnumerable<WeatherForecast> CreateWeatherForecasts(int count = 20)
