@@ -60,6 +60,7 @@ export default Vue.extend({
       { title: "Administration", routeName: "Administration" },
       { title: "Generic View", routeName: "GenericView" },
       { title: "Generic View 2", routeName: "GenericView2" },
+      { title: "CarsView", routeName: "CarsView" },
     ],
   }),
   methods: {

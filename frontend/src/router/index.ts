@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { Home, About, Administration, GenericView, GenericView2 } from '@/views'
+import { Home, About, Administration, GenericView, GenericView2, CarsView } from '@/views'
 
 Vue.use(VueRouter)
 
@@ -29,6 +29,11 @@ const routes = [
         path: '/genericview2',
         name: 'GenericView2',
         component: GenericView2
+    },
+    {
+        path: '/carsView',
+        name: 'CarsView',
+        component: CarsView
     }
 ]
 
