@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <CarAdministration :items="carAdministrators" />
+    <CarAdministration
+      :items="carAdministrators"
+      @pagination-changed-event="loadData"
+    />
     <CreateAdministrator @create-event="addAdministrator" />
   </v-container>
 </template>
@@ -43,6 +46,12 @@ export default {
       this.$store.dispatch("addCarAdministrator", {
         administrator,
         filter: this.filter,
+      });
+    },
+    loadData({ pagination }) {
+      this.$router.push({ query: { ...pagination } });
+      this.$store.dispatch("loadCarAdministratorData", {
+        pagination: pagination,
       });
     },
   },

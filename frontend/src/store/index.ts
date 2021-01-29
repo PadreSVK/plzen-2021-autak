@@ -1,18 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import { GET } from "@/services/apiService";
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        carAdministrators: [
-            { name: "Albert", note: "programator" },
-            { name: "Fero", note: "manager" },
-            { name: "Jozo", note: "správca" },
-            { name: "Kevin", note: "manager" },
-            { name: "Patrik", note: "programator" },
-        ],
-        genericComponents:[
+        carAdministrators: [],
             {
                 tableType: "CarAdministration",
                 items: [
@@ -68,7 +63,7 @@ export default new Vuex.Store({
             const administrators = state.carAdministrators.concat(administrator)
             state.carAdministrators = administrators
         },
-        UPDATE_CAR_ADMINISTRATOR(state, { administrators }) {
+        LOAD_CAR_ADMINISTRATORS(state, { administrators }) {
             state.carAdministrators = administrators
         }
     },
@@ -77,14 +72,12 @@ export default new Vuex.Store({
             console.log(filter)
             // call server, update administrators,  return administrators
             // const administrators = await POST("administrator", administrator)
-            // commit("UPDATE_CAR_ADMINISTRATOR", { administrators })
+            // commit("LOAD_CAR_ADMINISTRATORS", { administrators })
             commit("ADD_CAR_ADMINISTRATOR", { administrator })
         },
-        async loadCarAdmninistratorData({ commit }, { pagination }) {
-            console.log(pagination)
-            // call server, update administrators,  return administrators
-            // const administrators = await GET("caradministrators", {query: pagination})
-            // commit("UPDATE_CAR_ADMINISTRATOR", { administrators })
+        async loadCarAdministratorData({ commit }, { pagination }) {
+            const administrators = await GET("CarAdministration", { params: pagination })
+            commit("LOAD_CAR_ADMINISTRATORS", { administrators })
         }
     },
     modules: {

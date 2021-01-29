@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Text.Json.Serialization;
 using Autak.API.FakeDB;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +22,20 @@ namespace Autak.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var origins = Configuration
+                .GetSection("AllowedOrigins")
+                .GetChildren()
+                .Select(i => i.Value)
+                .ToArray();
+
+            services.AddCors(options => options
+                .AddDefaultPolicy(config => config
+                    .WithOrigins(origins)
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                )
+            );
+
             services.AddControllers()
                 .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
@@ -41,7 +56,7 @@ namespace Autak.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

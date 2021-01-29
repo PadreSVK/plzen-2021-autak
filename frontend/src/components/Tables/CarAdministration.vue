@@ -52,10 +52,7 @@ export default {
   watch: {
     pagination: {
       handler(newVal) {
-        this.$router.push({ query: { ...newVal } });
-        this.$store.dispatch("loadCarAdmninistratorData", {
-          pagination: newVal,
-        });
+        this.$emit("pagination-changed-event", { pagination: newVal });
       },
       deep: true,
     },
@@ -63,8 +60,6 @@ export default {
   methods: {
     stopEvent() {},
     updateFilter(e) {
-      console.log();
-
       console.log(e);
     },
   },
