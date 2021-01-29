@@ -1,5 +1,4 @@
 {
-    "message": "hello i18n !!",
     "views": {
         "App": {
             "localizations": {

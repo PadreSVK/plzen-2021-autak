@@ -3,21 +3,12 @@
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="VIS Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          :src="require('./assets/vis.png')"
           transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
+          width="80"
         />
 
         <v-btn
@@ -29,14 +20,25 @@
         </v-btn>
       </div>
 
-      {{ $t("message") }}
       <v-spacer></v-spacer>
-      <v-btn @click="changeLocalization('en')">{{
-        getCurrentLocalization("localizations.en")
-      }}</v-btn>
-      <v-btn @click="changeLocalization('cs')">{{
-        getCurrentLocalization("localizations.cs")
-      }}</v-btn>
+      <v-img
+        :alt="getCurrentLocalization('localizations.en')"
+        class="shrink mr-2"
+        contain
+        :src="require('./assets/us-flag.svg')"
+        transition="scale-transition"
+        width="40"
+        @click="changeLocalization('en')"
+      />
+      <v-img
+        :alt="getCurrentLocalization('localizations.cs')"
+        class="shrink mr-2"
+        contain
+        :src="require('./assets/cs-flag.svg')"
+        transition="scale-transition"
+        width="40"
+        @click="changeLocalization('cs')"
+      />
     </v-app-bar>
 
     <v-main>
