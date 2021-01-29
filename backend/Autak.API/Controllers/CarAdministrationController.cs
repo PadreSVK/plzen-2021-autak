@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace Autak.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CarAdministrationController : ControllerBase
     {
         private readonly ILogger<CarAdministrationController> logger;
