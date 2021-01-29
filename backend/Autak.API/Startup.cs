@@ -54,8 +54,12 @@ namespace Autak.API
 				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Autak.API v1"));
 			}
 
+			app.UseHttpsRedirection();
 
-            app.UseHttpsRedirection();
+			if (env.IsDevelopment())
+			{
+				app.UseMiddleware<RequestLoggingMiddleware>();
+			}
 
 			app.UseRouting();
 			app.UseCors();
